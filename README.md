@@ -14,16 +14,16 @@ A .NET 10 Razor Pages application with ASP.NET Core Identity and SQL Server.
 Determine where you want to store the project and
 right-click in the folder > Open in Terminal (or Git Bash Here), then run:
 
-'''bash
+```bash
 git clone https://github.com/jkaykay/delta-gym-system.git
 cd GymSystem
-'''
+```
 or download the ZIP and extract it.
 
 ### 2. Restore Dependencies
-'''bash
+```bash
 dotnet restore
-'''
+```
 or in Visual Studio, right-click the solution and select "Restore NuGet Packages".
 
 ### 3. Configure User Secrets (Connection String)
@@ -41,20 +41,20 @@ Add the following JSON, replacing with your actual connection string:
 ```
 
 ### 4. Apply Migrations and Seed Database
-'''bash
+```bash
 dotnet ef database update
-'''
+```
 
 or in the Package Manager Console:
-'''bash
+```bash
 Update-Database
-'''
+```
 
 ### 5. Run the Application
 
-'''bash
+```bash
 dotnet run
-'''
+```
 or press F5 in Visual Studio.
 
 The application will be available at `https://localhost:5001` (or the port shown in console output).
@@ -145,9 +145,10 @@ git push -u origin feature/your-feature-name
 ### 6. Syncing with Development (Merging)
 
 If development branch has been updated and you want to pull those changes into your feature branch:
-'''bash
-git fetch origin git merge origin/development
-'''
+```bash
+git fetch origin
+git merge origin/development
+```
 
 **Merge conflicts?**
 - Use `git status` to see conflicting files
