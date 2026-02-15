@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Gym System</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GymSystem.styles.css" asp-append-version="true" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="brand-icon">
+            <a title="Brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img alt="Brand Logo" src="~/images/default_logo.png" />
+            </a>
+        </div>
+        <nav>
+            <div id="navi">
+                <div class="menu-link-container">
+                    <a title="Join Us" class="menu-links" asp-area="" asp-controller="Membership" asp-action="Index">Memberships</a>          
+                </div>
+                <div class="menu-link-container">
+                    <a title="Why Us" class="menu-links" asp-area="" asp-controller="About" asp-action="Index">Why Us</a>
+                </div>
+                <div class="menu-link-container">
+                    <a title="Log In" class="menu-links" asp-area="" asp-controller="" asp-action="Index">Log In</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="maindiv">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div>
+            &copy; 2026 - PWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
