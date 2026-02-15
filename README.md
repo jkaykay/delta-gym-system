@@ -16,7 +16,7 @@ right-click in the folder > Open in Terminal (or Git Bash Here), then run:
 
 ```bash
 git clone https://github.com/jkaykay/delta-gym-system.git
-cd GymSystem
+cd delta-gym-system
 ```
 or download the ZIP and extract it.
 
