@@ -1,3 +1,5 @@
+🚀 Production Status: For the latest stable release, see the main branch.
+
 # GymSystem
 
 A .NET 10 Razor Pages application with ASP.NET Core Identity and SQL Server.
