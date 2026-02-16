@@ -1,22 +1,18 @@
-﻿@using GymSystem.Models
-@model LoginViewModel
+﻿@model LoginViewModel
 
 @{
-    ViewData["Title"] = "Management Login";
+    ViewData["Title"] = "Member Login";
 }
 
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card shadow border-danger">
-                <div class="card-header bg-danger text-white">
-                    <h3 class="mb-0">Management Portal</h3>
-                </div>
+            <div class="card shadow">
                 <div class="card-body p-5">
-                    <h4 class="card-title text-center mb-4">Management Login</h4>
+                    <h2 class="card-title text-center mb-4">Member Login</h2>
 
-                    <form method="post" asp-action="Login" asp-area="Management">
-                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    <form method="post" asp-action="Login">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                         <div class="mb-3">
                             <label asp-for="Email" class="form-label">Email Address</label>
@@ -35,13 +31,14 @@
                             <label asp-for="RememberMe" class="form-check-label">Remember me</label>
                         </div>
 
-                        <button type="submit" class="btn btn-danger w-100 mb-3">Login to Management</button>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
                     </form>
 
                     <hr />
 
-                    <p class="text-center text-muted small mb-0">
-                        Authorized personnel only. All access is logged.
+                    <p class="text-center mb-0">
+                        Don't have an account?
+                        <a asp-action="Register" class="text-decoration-none">Register here</a>
                     </p>
                 </div>
             </div>

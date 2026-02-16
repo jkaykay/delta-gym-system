@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GymSystem.Controllers
+namespace GymSystem.Areas.Members.Controllers
 {
+    [Area("Members")]
     [AllowAnonymous]
     public class AccountController : Controller
     {
@@ -89,21 +90,5 @@ namespace GymSystem.Controllers
         }
 
         public IActionResult AccessDenied() => View();
-    }
-
-    public class LoginViewModel
-    {
-        public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-        public bool RememberMe { get; set; }
-    }
-
-    public class RegisterViewModel
-    {
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-        public string ConfirmPassword { get; set; } = string.Empty;
     }
 }

@@ -22,7 +22,7 @@ namespace GymSystem.Areas.Management.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            return View(); // Create Views/Areas/Management/Views/Account/Login.cshtml
+            return View();
         }
 
         [HttpPost]
