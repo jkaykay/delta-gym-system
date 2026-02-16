@@ -1,103 +1,20 @@
-:root {
-    --floralwhite: #FBFBF2;
-    --alabastergrey: #E5E6E4;
-    --dustgrey: #CFD2CD;
-    --silver: #A6A2A2;
-    --rosygranite: #847577;
-    --offwhite: #FDFDFD;
-    --offblack: #1A1A1A;
-}
-/*
-a {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-a:visited,
-a:hover,
-a:focus,
-a:active {
-    color: inherit;
-    text-decoration: none;
-    outline: none;
-}
-*/
-body {
-    width: 100%;
+﻿.page-block {
+    width: 90%;
     margin: 0 auto;
-}
-
-header {
-    width: 100%;
-    height: 100px;
-    background: var(--silver);
-    background: linear-gradient(
-        160deg, var(--rosygranite) 20%, var(--silver) 45%, var(--dustgrey) 81%, var(--alabastergrey) 89%
-    );
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     box-sizing: border-box;
-    margin: 0 auto;
-    padding-left: 5%;
-    padding-right: 5%;
-    align-items: center;
-}
-
-#brand-icon {
-    display: flex;
-    height: 100%;
-    margin: 0;
-    aspect-ratio: 1 / 1;
-    box-sizing: border-box;
-}
-
-#brand-icon a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-#brand-icon img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Keeps logo proportions perfect */
-    margin: 0;
-    box-sizing: border-box;
-}
-
-nav {
     flex: 1;
-    margin: 10px;
 }
 
-#navi {
-    display: flex;
-    flex-direction: row;
-    height: 80px;
-    align-items: center;
-    box-sizing:border-box;
-}
-
-.menu-link-container{
-    box-sizing: border-box;
-    margin: 5px;
-    padding: 10px;
-}
-
-.menu-links{
+.page-block h1 {
     font-family: "Dosis", sans-serif;
-    font-size: 18px;
-    text-decoration: none;
-    color: var(--offblack);
-    user-select: none;
-    -webkit-user-select: none;
+    font-size: 250%;
 }
 
-.menu-links:hover{
-    color: var(--dustgrey);
-    text-decoration: underline;
+#banner-block {
+    width: 100%;
+    aspect-ratio: 21/4;
+    box-sizing: border-box;
+    background-color: var(--silver);
 }

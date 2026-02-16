@@ -2,7 +2,7 @@
 
 # GymSystem
 
-A .NET 10 Razor Pages application with ASP.NET Core Identity and SQL Server.
+A .NET 10 MVC application with ASP.NET Core Identity and SQL Server.
 
 ## Prerequisites
 
