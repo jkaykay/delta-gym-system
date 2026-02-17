@@ -9,11 +9,6 @@ namespace GymSystem.Areas.Members.Controllers
     [AllowAnonymous]
     public class AccountController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
@@ -37,8 +32,16 @@ namespace GymSystem.Areas.Members.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (!ModelState.IsValid) return View(model);
 
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-            if (result.Succeeded) return LocalRedirect(returnUrl ?? "/");
+            // Check if input is email or username
+            var user = model.UsernameOrEmail.Contains('@')
+                ? await _userManager.FindByEmailAsync(model.UsernameOrEmail)
+                : await _userManager.FindByNameAsync(model.UsernameOrEmail);
+
+            if (user != null)
+            {
+                var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, lockoutOnFailure: false);
+                if (result.Succeeded) return LocalRedirect(returnUrl ?? "/");
+            }
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             return View(model);
@@ -60,7 +63,7 @@ namespace GymSystem.Areas.Members.Controllers
 
             var user = new ApplicationUser
             {
-                UserName = model.Email,
+                UserName = model.Username,
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,

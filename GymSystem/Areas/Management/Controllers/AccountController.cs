@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using GymSystem.Controllers;
-using GymSystem.Models;
+﻿using GymSystem.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +29,7 @@ namespace GymSystem.Areas.Management.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(model.UsernameOrEmail, model.Password, model.RememberMe, lockoutOnFailure: false);
             if (result.Succeeded) return LocalRedirect(returnUrl ?? "/Management");
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
