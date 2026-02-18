@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Management\Data\" />
-    <Folder Include="Areas\Management\Models\" />
     <Folder Include="Areas\Members\Data\" />
     <Folder Include="Areas\Members\Models\" />
   </ItemGroup>

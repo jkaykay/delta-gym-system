@@ -29,12 +29,51 @@
                 <div class="menu-link-container">
                     <a title="Why Us" class="menu-links" asp-area="" asp-controller="About" asp-action="Index">Why Us</a>
                 </div>
-                <div class="menu-link-container">
-                    <a title="Log In" class="menu-links" asp-area="Members" asp-controller="Account" asp-action="Login">Log In</a>
-                </div>
-                <div class="menu-link-container">
-                    <a title="Join Us" class="menu-links" id="important-link" asp-area="" asp-controller="Membership" asp-action="Index">Memberships</a>
-                </div>
+                
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <!-- Shown when logged in -->
+                    <div class="menu-link-container">
+                        <span class="menu-links">Hello, @User.Identity.Name!</span>
+                    </div>
+
+                    @* Dashboard button for Members *@
+                    @if (User.IsInRole("Member"))
+                    {
+                        <div class="menu-link-container">
+                            <a title="My Dashboard" class="menu-links" asp-area="Members" asp-controller="Dashboard" asp-action="Index">
+                                My Dashboard
+                            </a>
+                        </div>
+                    }
+
+                    @* Management users see Management Dashboard link *@
+                    @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+                    {
+                        <div class="menu-link-container">
+                            <a title="Management" class="menu-links text-danger" asp-area="Management" asp-controller="Dashboard" asp-action="Index">
+                                ⚙️ Management
+                            </a>
+                        </div>
+                    }
+
+                    <div class="menu-link-container">
+                        <form asp-area="Members" asp-controller="Account" asp-action="Logout" method="post">
+                            <button type="submit" class="menu-links btn-link">Log Out</button>
+                        </form>
+                    </div>
+                }
+
+                else
+                {
+                    <!-- Shown when NOT logged in -->
+                    <div class="menu-link-container">
+                        <a title="Log In" class="menu-links" asp-area="Members" asp-controller="Account" asp-action="Login">Log In</a>
+                    </div>
+                    <div class="menu-link-container">
+                        <a title="Join Us" class="menu-links" id="important-link" asp-area="" asp-controller="Membership" asp-action="Index">Memberships</a>
+                    </div>
+                }
             </div>
         </nav>
     </header>
