@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GymSystem.Models
+namespace GymSystem.Areas.Members.ViewModels
 {
     public class LoginViewModel
     {

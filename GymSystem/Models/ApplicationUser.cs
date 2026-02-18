@@ -16,8 +16,15 @@ namespace GymSystem.Models
         [MaxLength(100)]
         public string LastName { get; set; } = string.Empty;
 
-        public DateTime JoinDate { get; set; } = DateTime.Now;
+        public DateTime JoinDate { get; set; } = DateTime.UtcNow;
 
         public bool Active { get; set; } = true;
+
+        public DateTime? HireDate { get; set; }
+
+        [MaxLength(50)]
+        public string? EmployeeId { get; set; } // Internal staff ID
+
+        public string? CreatedByUserId { get; set; }
     }
 }

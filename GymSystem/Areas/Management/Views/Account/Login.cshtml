@@ -1,59 +1,51 @@
-﻿@using GymSystem.Models
-@model LoginViewModel
+﻿@model ManagementLoginViewModel
 
 @{
     ViewData["Title"] = "Management Login";
+    Layout = "~/Areas/Management/Views/Shared/_ManagementLoginLayout.cshtml";
 }
 
-<div class="page-block">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow border-danger">
-                    <div class="card-header bg-danger text-white">
-                        <h3 class="mb-0">Management Portal</h3>
-                    </div>
-                    <div class="card-body p-5">
-                        <h4 class="card-title text-center mb-4">Management Login</h4>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow border-danger">
+                <div class="card-header bg-danger text-white text-center">
+                    <h3 class="mb-0">⚙️ Management Portal</h3>
+                </div>
+                <div class="card-body p-4">
+                    <h5 class="card-title text-center mb-4">Sign in to continue</h5>
 
-                        <form method="post" asp-action="Login" asp-area="Management">
-                            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    <form method="post" asp-action="Login" asp-area="Management">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
-                            <div class="mb-3">
-                                <label asp-for="Email" class="form-label">Email Address</label>
-                                <input asp-for="Email" type="email" class="form-control" required />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </div>
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email Address</label>
+                            <input asp-for="Email" type="email" class="form-control" required />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
 
-                            <div class="mb-3">
-                                <label asp-for="Password" class="form-label">Password</label>
-                                <input asp-for="Password" type="password" class="form-control" required />
-                                <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" required />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
 
-                            <div class="mb-3 form-check">
-                                <input asp-for="RememberMe" type="checkbox" class="form-check-input" />
-                                <label asp-for="RememberMe" class="form-check-label">Remember me</label>
-                            </div>
+                        <div class="mb-3 form-check">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label">Remember me</label>
+                        </div>
 
-                            <button type="submit" class="btn btn-danger w-100 mb-3">Login to Management</button>
-                        </form>
-
-                        <hr />
-
-                        <p class="text-center text-muted small mb-0">
-                            Authorized personnel only. All access is logged.
-                        </p>
-                    </div>
+                        <button type="submit" class="btn btn-danger w-100">Login</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center text-muted">
+                    <small>Authorized personnel only</small>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    <partial name="_ValidationScriptsPartial" />
 }
